@@ -16,6 +16,7 @@ body {
 /* Clamp all sections to viewport width */
 .hero-section,
 .proof-section,
+.onboarding-section,
 .profit-calc-section,
 .autopsy-section,
 .comparison-section,
@@ -33,12 +34,6 @@ body {
     overflow: hidden;
   }
 
-  /* The frosted glass backing elements use negative offsets that bleed out.
-     Clip them entirely on mobile where the decorative effect is less impactful. */
-  .hero-glass-backing-1,
-  .hero-glass-backing-2 {
-    display: none;
-  }
 
   /* Allow ALL live-badge text to wrap so it never stretches the layout */
   .live-badge {
@@ -159,11 +154,6 @@ body {
 /* ==========================================================================
    Header - mobile fixes
    ========================================================================== */
-@media (max-width: 480px) {
-  .header-container .live-badge {
-    display: none;
-  }
-}
 
 @media (max-width: 767px) {
   .header-actions > .btn-primary {
@@ -259,22 +249,6 @@ body {
     flex-shrink: 0;
     white-space: nowrap;
     font-size: 10px;
-  }
-}
-
-@media (max-width: 767px) {
-  .hero-glass-backing-1 {
-    top: -8px;
-    left: -6px;
-    right: -6px;
-    bottom: -8px;
-  }
-
-  .hero-glass-backing-2 {
-    top: -4px;
-    left: -3px;
-    right: -3px;
-    bottom: -4px;
   }
 }
 

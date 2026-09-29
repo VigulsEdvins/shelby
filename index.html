@@ -27,6 +27,7 @@
 
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="apple-touch-icon" href="assets/favicon.svg">
 
   <!-- Preconnect to Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -67,25 +68,30 @@
   <header class="site-header" role="banner">
     <div class="container header-container">
       <!-- Brand Logo -->
-      <div class="flex items-center gap-3">
-        <a href="#" class="brand-logo" aria-label="Shelby AI">
+      <div class="flex items-center">
+        <a href="#" class="brand-logo" aria-label="Shelby.ai">
           <div class="brand-mark" aria-hidden="true">
-            <svg viewBox="0 0 32 32"><path d="M16 4a12 12 0 0 0-10.4 18l-1.6 6 6.2-1.6A12 12 0 1 0 16 4z"/></svg>
+            <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="shelbyGradHdr" x1="7" y1="8" x2="25" y2="24" gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#25D366"/>
+                  <stop offset="1" stop-color="#66FF8E"/>
+                </linearGradient>
+              </defs>
+              <path d="M21 8.5H12.5C9.46 8.5 7 10.96 7 14C7 17.04 9.46 17.5 12.5 17.5H19.5C22.54 17.5 25 18 25 21C25 24 22.54 26.5 19.5 26.5H10" stroke="url(#shelbyGradHdr)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle cx="21" cy="8.5" r="1.6" fill="#66FF8E"/>
+            </svg>
           </div>
-          <span class="brand-name">Shelby AI</span>
+          <span class="brand-name">Shelby<span class="brand-ai">.ai</span></span>
         </a>
-        <div class="live-badge" title="Official Meta Cloud Engine Connected" data-i18n-title="nav.api_title">
-          <span class="pulse-indicator"></span>
-          <span data-i18n="nav.api_active">Meta API 24/7 Active</span>
-        </div>
       </div>
 
       <!-- Desktop Navigation Links -->
       <nav class="nav-pill-wrapper" aria-label="Main Navigation">
         <a href="#how-it-works" class="nav-link" data-i18n="nav.how_it_works">How It Works</a>
-        <a href="#calculator" class="nav-link" data-i18n="nav.calculator">Profit &amp; ROAS Engine</a>
-        <a href="#autopsy" class="nav-link" data-i18n="nav.autopsy">Before vs After</a>
-        <a href="#pricing-plans" class="nav-link" data-i18n="nav.offers">Offers &amp; Pricing</a>
+        <a href="#calculator" class="nav-link" data-i18n="nav.calculator">Calculator</a>
+        <a href="#autopsy" class="nav-link" data-i18n="nav.autopsy">Comparison</a>
+        <a href="#pricing-plans" class="nav-link" data-i18n="nav.offers">Pricing</a>
         <a href="#faq" class="nav-link" data-i18n="nav.faq">FAQ</a>
       </nav>
 
@@ -96,9 +102,9 @@
           <button type="button" class="lang-btn" data-lang="ru" aria-label="Русский">RU</button>
           <button type="button" class="lang-btn" data-lang="lv" aria-label="Latviešu">LV</button>
         </div>
-        <a href="#pricing-plans" class="btn-primary">
-          <span class="material-symbols-outlined" style="font-size: 18px;">arrow_forward</span>
+        <a href="#pricing-plans" class="btn-primary header-cta-btn">
           <span data-i18n="nav.launch_whatsapp">Choose Plan</span>
+          <span class="material-symbols-outlined">arrow_forward</span>
         </a>
 
         <!-- Mobile Drawer Toggle Button -->
@@ -113,7 +119,21 @@
   <div class="mobile-drawer" id="mobileDrawer" role="dialog" aria-modal="true" aria-label="Mobile Navigation Menu">
     <div class="mobile-drawer-content">
       <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem; padding-bottom: 0.75rem; border-bottom: 1px solid var(--color-border-subtle);">
-        <span style="font-size: 13px; font-weight: 600; color: var(--color-text-secondary);">Language / Valoda</span>
+        <a href="#" class="brand-logo" aria-label="Shelby.ai">
+          <div class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="shelbyGradDrw" x1="7" y1="8" x2="25" y2="24" gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#25D366"/>
+                  <stop offset="1" stop-color="#66FF8E"/>
+                </linearGradient>
+              </defs>
+              <path d="M21 8.5H12.5C9.46 8.5 7 10.96 7 14C7 17.04 9.46 17.5 12.5 17.5H19.5C22.54 17.5 25 18 25 21C25 24 22.54 26.5 19.5 26.5H10" stroke="url(#shelbyGradDrw)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle cx="21" cy="8.5" r="1.6" fill="#66FF8E"/>
+            </svg>
+          </div>
+          <span class="brand-name">Shelby<span class="brand-ai">.ai</span></span>
+        </a>
         <div class="lang-switcher" role="group" aria-label="Mobile language selection">
           <button type="button" class="lang-btn active" data-lang="en" aria-label="English">EN</button>
           <button type="button" class="lang-btn" data-lang="ru" aria-label="Русский">RU</button>
@@ -121,9 +141,9 @@
         </div>
       </div>
       <a href="#how-it-works" class="mobile-nav-link" data-i18n="nav.how_it_works">How It Works</a>
-      <a href="#calculator" class="mobile-nav-link" data-i18n="nav.calculator">Profit &amp; ROAS Engine</a>
-      <a href="#autopsy" class="mobile-nav-link" data-i18n="nav.autopsy">Before vs After</a>
-      <a href="#pricing-plans" class="mobile-nav-link" data-i18n="nav.offers">Offers &amp; Pricing</a>
+      <a href="#calculator" class="mobile-nav-link" data-i18n="nav.calculator">Calculator</a>
+      <a href="#autopsy" class="mobile-nav-link" data-i18n="nav.autopsy">Comparison</a>
+      <a href="#pricing-plans" class="mobile-nav-link" data-i18n="nav.offers">Pricing</a>
       <a href="#faq" class="mobile-nav-link" data-i18n="nav.faq">FAQ</a>
       <div style="margin-top: 0.5rem; padding-top: 0.75rem; border-top: 1px solid var(--color-border-subtle);">
         <a href="#pricing-plans" class="btn-primary mobile-nav-link" style="width: 100%;">
@@ -138,7 +158,7 @@
   <main id="main-content" role="main">
 
     <!-- HERO SECTION -->
-    <section class="hero-section" id="how-it-works" aria-labelledby="hero-heading">
+    <section class="hero-section" id="hero" aria-labelledby="hero-heading">
       <div class="hero-landscape-bg" style="background-image: url('assets/hero-bg.png');"></div>
       
       <div class="container hero-grid">
@@ -156,7 +176,7 @@
           </h1>
 
           <p class="font-body" style="font-size: var(--font-size-body-lg); line-height: 1.5; color: var(--color-text-secondary);" data-i18n="hero.description">
-            Shelby cuts leaking ad sets while you sleep, shifts budgets to winning creatives, and delivers live auction telemetries right into your WhatsApp chat.
+            Stop burning ad budget. Shelby auto-pauses bleeding ads, scales winners, and sends instant alerts inside WhatsApp.
           </p>
 
           <div class="hero-ctas">
@@ -173,11 +193,11 @@
           <div class="trust-badges">
             <div class="trust-badge-item">
               <span class="material-symbols-outlined text-primary" style="font-size: 16px;">verified</span>
-              <span data-i18n="hero.guarantee">30-Day Money-Back Guarantee</span>
+              <span data-i18n="hero.guarantee">100% Money-Back Guarantee</span>
             </div>
             <div class="trust-badge-item">
               <span class="material-symbols-outlined text-primary" style="font-size: 16px;">bolt</span>
-              <span data-i18n="hero.instant_setup">Instant WhatsApp 90s Setup</span>
+              <span data-i18n="hero.instant_setup">2-Min Setup • Ready Instantly</span>
             </div>
             <div class="trust-badge-item">
               <span class="material-symbols-outlined text-primary" style="font-size: 16px;">lock_open</span>
@@ -197,19 +217,18 @@
           </div>
         </div>
 
-        <!-- Right Column: Layered 3D Frosted Glass & Interactive Simulator -->
+        <!-- Right Column: Interactive Simulator -->
         <div class="hero-mockup-stack">
-          <!-- Frosted Glass Backing Layers (Ryze Style Light Mode) -->
-          <div class="hero-glass-backing-1 animate-float-1" aria-hidden="true"></div>
-          <div class="hero-glass-backing-2 animate-float-2" aria-hidden="true"></div>
-
           <!-- Interactive WhatsApp Media Buyer Simulator -->
           <div class="chat-mockup-wrapper" aria-label="Interactive WhatsApp AI Media Buyer Simulator">
             <!-- WhatsApp Window Header -->
             <div class="chat-header">
               <div class="chat-profile">
-                <div class="chat-avatar">
-                  S
+                <div class="chat-avatar" aria-label="Shelby AI">
+                  <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" style="width: 22px; height: 22px;">
+                    <path d="M20.5 5H12C8.96 5 6.5 7.46 6.5 10.5C6.5 13.54 8.96 16 12 16H20C23.04 16 25.5 18.46 25.5 21.5C25.5 24.54 23.04 27 20 27H10" stroke="#04150a" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"/>
+                    <circle cx="26" cy="5" r="2" fill="#04150a"/>
+                  </svg>
                   <span class="chat-status-dot"></span>
                 </div>
                 <div class="chat-agent-info">
@@ -219,7 +238,7 @@
                   </div>
                   <div class="chat-agent-subtext">
                     <span style="display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: var(--color-primary-container);"></span>
-                    <span data-i18n="chat.profile_status">Meta Cloud Engine • Graph API 200 OK</span>
+                    <span data-i18n="chat.profile_status">Meta Cloud Engine</span>
                   </div>
                 </div>
               </div>
@@ -237,31 +256,29 @@
               </div>
             </div>
 
-            <!-- Interactive Scenario Switcher Bar -->
-            <div style="padding: 0.65rem 1rem 0; background-color: var(--surface-subtle); border-bottom: 1px solid var(--color-border-subtle);">
-              <div class="scenario-tabs-container">
-                <span class="scenario-tabs-label">
-                  <span class="material-symbols-outlined" style="font-size: 14px;">touch_app</span>
-                  <span data-i18n="chat.scenarios_label">Tap to test real scenarios:</span>
-                </span>
-                <div class="scenario-tabs-row">
-                  <button type="button" class="scenario-tab-btn active" data-scenario="cut">
-                    <span>🛑</span>
-                    <span data-i18n="chat.scenario_cut">Kill 3 AM Bleed</span>
-                  </button>
-                  <button type="button" class="scenario-tab-btn" data-scenario="scale">
-                    <span>🚀</span>
-                    <span data-i18n="chat.scenario_scale">Scale Winner +30%</span>
-                  </button>
-                  <button type="button" class="scenario-tab-btn" data-scenario="hooks">
-                    <span>💡</span>
-                    <span data-i18n="chat.scenario_hooks">Viral Hooks</span>
-                  </button>
-                  <button type="button" class="scenario-tab-btn" data-scenario="espresso">
-                    <span>☕</span>
-                    <span data-i18n="chat.scenario_espresso">9 AM Briefing</span>
-                  </button>
-                </div>
+            <!-- Interactive Scenario Switcher Bar (Prettier Single Line) -->
+            <div class="scenario-strip-bar">
+              <span class="scenario-strip-label">
+                <span class="material-symbols-outlined">auto_awesome</span>
+                <span data-i18n="chat.scenarios_label">Try:</span>
+              </span>
+              <div class="scenario-tabs-row">
+                <button type="button" class="scenario-tab-btn active" data-scenario="cut">
+                  <span class="scenario-emoji">🛑</span>
+                  <span data-i18n="chat.scenario_cut">Kill 3 AM Bleed</span>
+                </button>
+                <button type="button" class="scenario-tab-btn" data-scenario="scale">
+                  <span class="scenario-emoji">🚀</span>
+                  <span data-i18n="chat.scenario_scale">Scale Winner +30%</span>
+                </button>
+                <button type="button" class="scenario-tab-btn" data-scenario="hooks">
+                  <span class="scenario-emoji">💡</span>
+                  <span data-i18n="chat.scenario_hooks">Viral Hooks</span>
+                </button>
+                <button type="button" class="scenario-tab-btn" data-scenario="espresso">
+                  <span class="scenario-emoji">☕</span>
+                  <span data-i18n="chat.scenario_espresso">9 AM Briefing</span>
+                </button>
               </div>
             </div>
 
@@ -397,7 +414,7 @@
             </div>
             <div>
               <div class="proof-metric tabular-nums" data-i18n="proof.historical_num">€54,200,000+</div>
-              <p style="font-size: 14px; color: var(--color-text-secondary); margin-top: 4px;" data-i18n="proof.historical_desc">Aggregate Meta ad spend analyzed and guided across 420+ DTC stores.</p>
+              <p style="font-size: 14px; color: var(--color-text-secondary); margin-top: 4px;" data-i18n="proof.historical_desc">Optimized across 420+ ecommerce stores.</p>
             </div>
           </div>
 
@@ -408,7 +425,7 @@
             </div>
             <div>
               <div class="proof-metric tabular-nums text-primary" data-i18n="proof.lift_num">4.3x ROAS</div>
-              <p style="font-size: 14px; color: var(--color-text-secondary); margin-top: 4px;" data-i18n="proof.lift_desc">Average blended return on ad spend achieved within 21 days of deployment.</p>
+              <p style="font-size: 14px; color: var(--color-text-secondary); margin-top: 4px;" data-i18n="proof.lift_desc">Average blended ROAS achieved in 21 days.</p>
             </div>
           </div>
 
@@ -419,9 +436,73 @@
             </div>
             <div>
               <div class="proof-metric tabular-nums" data-i18n="proof.efficiency_num">18,500+ Hrs</div>
-              <p style="font-size: 14px; color: var(--color-text-secondary); margin-top: 4px;" data-i18n="proof.efficiency_desc">Manual Ads Manager checking reclaimed by media buyers and growth engineers.</p>
+              <p style="font-size: 14px; color: var(--color-text-secondary); margin-top: 4px;" data-i18n="proof.efficiency_desc">Hours saved from manual Ads Manager checking.</p>
             </div>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION: SUPER EASY ONBOARDING / HOW IT WORKS -->
+    <section class="onboarding-section" id="how-it-works" aria-labelledby="onboarding-heading">
+      <div class="container">
+        <div class="text-center max-w-2xl" style="margin: 0 auto;">
+          <span class="section-badge" data-i18n="onboarding.badge">Fast &amp; Effortless</span>
+          <h2 id="onboarding-heading" class="section-heading" style="margin-top: 0.5rem;" data-i18n="onboarding.heading">
+            Super Easy Setup. Ready in 2 Minutes.
+          </h2>
+          <p class="section-description" style="margin: 0.5rem auto 0;" data-i18n="onboarding.description">
+            No complex dashboards. No technical skills. Start managing ads in 3 simple steps.
+          </p>
+        </div>
+
+        <div class="onboarding-grid">
+          <!-- Step 1 -->
+          <div class="onboarding-card card-lift">
+            <div class="onboarding-step-header">
+              <span class="onboarding-step-chip" data-i18n="onboarding.step1_time">Step 1 • 30 sec</span>
+              <div class="onboarding-step-icon">
+                <span class="material-symbols-outlined" style="font-size: 24px;">chat</span>
+              </div>
+            </div>
+            <h3 class="onboarding-step-title" data-i18n="onboarding.step1_title">Open WhatsApp</h3>
+            <p class="onboarding-step-desc" data-i18n="onboarding.step1_desc">
+              No new apps or passwords. Simply tap to start a chat with your AI media buyer.
+            </p>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="onboarding-card card-lift">
+            <div class="onboarding-step-header">
+              <span class="onboarding-step-chip" data-i18n="onboarding.step2_time">Step 2 • 60 sec</span>
+              <div class="onboarding-step-icon">
+                <span class="material-symbols-outlined" style="font-size: 24px;">link</span>
+              </div>
+            </div>
+            <h3 class="onboarding-step-title" data-i18n="onboarding.step2_title">1-Click Meta Sync</h3>
+            <p class="onboarding-step-desc" data-i18n="onboarding.step2_desc">
+              Authorize securely via official Meta Cloud API with 1 click. Zero manual setup.
+            </p>
+          </div>
+
+          <!-- Step 3: Highlight card -->
+          <div class="onboarding-card highlight-card card-lift">
+            <div class="onboarding-step-header">
+              <span class="onboarding-step-chip" style="background: var(--color-primary-container); color: var(--color-on-primary-container);" data-i18n="onboarding.step3_time">Step 3 • Live Instantly</span>
+              <div class="onboarding-step-icon">
+                <span class="material-symbols-outlined" style="font-size: 24px;">rocket_launch</span>
+              </div>
+            </div>
+            <h3 class="onboarding-step-title" data-i18n="onboarding.step3_title">Ready to Use Immediately</h3>
+            <p class="onboarding-step-desc" data-i18n="onboarding.step3_desc">
+              Shelby immediately starts guarding your budget, killing leaks, and taking commands.
+            </p>
+          </div>
+        </div>
+
+        <div class="onboarding-bottom-note">
+          <span class="material-symbols-outlined text-primary" style="font-size: 18px;">bolt</span>
+          <span data-i18n="onboarding.footer_note">Zero setup friction — ready to manage your ads in under 2 minutes.</span>
         </div>
       </div>
     </section>
@@ -439,7 +520,7 @@
             How much ad budget are you burning overnight?
           </h2>
           <p class="section-description" style="margin: 0.5rem auto 0;" data-i18n="calculator.description">
-            Meta ad sets frequently suffer sudden CPA surges past 11:00 PM while you sleep. Slide your monthly spend, test algorithm modes, and watch Shelby's live ROAS velocity curve in action.
+            Slide your monthly spend to see how much wasted budget Shelby saves you every month.
           </p>
         </div>
 
@@ -492,15 +573,15 @@
             <div class="calc-comparison-checklist">
               <div class="calc-check-item">
                 <span class="material-symbols-outlined" style="font-size: 18px; color: #dc2626;">cancel</span>
-                <span data-i18n="calculator.check_without"><strong>Without Shelby:</strong> Overnight CPA spikes burn €40–€180 before morning review.</span>
+                <span data-i18n="calculator.check_without"><strong>Without Shelby:</strong> Overnight CPA spikes waste €40–€180 before morning.</span>
               </div>
               <div class="calc-check-item">
                 <span class="material-symbols-outlined text-primary" style="font-size: 18px;">check_circle</span>
-                <span data-i18n="calculator.check_with"><strong>With Shelby:</strong> 180s Anomaly Radar auto-pauses leaks and texts you in WhatsApp.</span>
+                <span data-i18n="calculator.check_with"><strong>With Shelby:</strong> Auto-pauses leaks in 180s and texts your WhatsApp.</span>
               </div>
               <div class="calc-check-item">
                 <span class="material-symbols-outlined text-primary" style="font-size: 18px;">check_circle</span>
-                <span data-i18n="calculator.check_scale"><strong>Autonomous Scale:</strong> Protected budget auto-shifts to 4x+ ROAS winners.</span>
+                <span data-i18n="calculator.check_scale"><strong>Autonomous Scale:</strong> Budget shifts automatically to 4x+ ROAS winners.</span>
               </div>
             </div>
           </div>
@@ -552,7 +633,7 @@
               </a>
               <div class="flex items-center justify-center gap-2" style="font-size: 11px; color: var(--color-text-muted); margin-top: 0.5rem;">
                 <span class="material-symbols-outlined text-primary" style="font-size: 14px;">verified</span>
-                <span data-i18n="calculator.guarantee_sub">90s WhatsApp Setup • 30-Day 100% Money-Back Guarantee</span>
+                <span data-i18n="calculator.guarantee_sub">Super Easy Setup • 100% Money-Back Guarantee</span>
               </div>
             </div>
           </div>
@@ -564,7 +645,7 @@
             <div>
               <div class="flex flex-wrap items-center gap-2">
                 <h3 class="timeline-header-title" data-i18n="timeline.heading">
-                  A Day in the Life with Shelby (24-Hour Autonomous Flight Log)
+                  24-Hour Flight Log: How Shelby Works
                 </h3>
                 <span class="live-badge" style="font-size: 11px; padding: 0.2rem 0.65rem; font-weight: 700;">
                   <span class="pulse-indicator"></span>
@@ -572,7 +653,7 @@
                 </span>
               </div>
               <p class="timeline-header-sub" data-i18n="timeline.description">
-                See what happens to your ad budget while you sleep, work, and scale — executed in under 180s, reported directly to your WhatsApp.
+                See how Shelby guards and scales your budget around the clock — reported directly to WhatsApp.
               </p>
             </div>
 
@@ -671,7 +752,12 @@
             <div class="timeline-wa-phone">
               <div class="wa-phone-topbar">
                 <div class="wa-phone-user">
-                  <div class="wa-phone-avatar">S</div>
+                  <div class="wa-phone-avatar" aria-label="Shelby AI">
+                    <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" style="width: 18px; height: 18px;">
+                      <path d="M20.5 5H12C8.96 5 6.5 7.46 6.5 10.5C6.5 13.54 8.96 16 12 16H20C23.04 16 25.5 18.46 25.5 21.5C25.5 24.54 23.04 27 20 27H10" stroke="#075e54" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"/>
+                      <circle cx="26" cy="5" r="2" fill="#075e54"/>
+                    </svg>
+                  </div>
                   <div>
                     <div class="wa-phone-name" data-i18n="timeline.phone_name">Shelby.ai • Ad Copilot</div>
                     <div class="wa-phone-status" data-i18n="timeline.phone_status">Online • 180s continuous loop</div>
@@ -775,7 +861,7 @@
             Manual Ads Manager vs. Autonomous WhatsApp
           </h2>
           <p class="section-description" style="margin: 0.5rem auto 0;" data-i18n="autopsy.description">
-            Drag the divider handle to compare how an identical ad budget performs under manual agency management versus Shelby's 180-second continuous radar.
+            Drag the divider handle to compare manual management with Shelby's 24/7 autonomous protection.
           </p>
 
           <!-- Interactive Tab Toggle Bar -->
@@ -904,10 +990,10 @@
         <div class="text-center max-w-3xl" style="margin: 0 auto;">
           <span class="section-badge" data-i18n="comparison.badge">The Fundamental Shift</span>
           <h2 id="comparison-heading" class="section-heading" style="margin-top: 0.5rem;" data-i18n="comparison.heading">
-            Why high-growth DTC brands are leaving retainers behind.
+            Why DTC Brands Switch to Shelby
           </h2>
           <p class="section-description" style="margin: 0.5rem auto 0;" data-i18n="comparison.description">
-            Agency retainers create misaligned incentives. Manual management consumes founder focus. Shelby brings instant execution.
+            No agency retainers. No clunky dashboards. Just instant execution inside WhatsApp.
           </p>
         </div>
 
@@ -976,10 +1062,10 @@
         <div class="text-center max-w-2xl" id="pricing-plans" style="margin: 0 auto; scroll-margin-top: 80px;">
           <span class="section-badge" id="pricing-badge" data-i18n="pricing.badge">Transparent Growth Plans</span>
           <h2 id="pricing-heading" class="section-heading" style="margin-top: 0.5rem;" data-i18n="pricing.heading">
-            Two high-converting offers. Zero contracts.
+            Simple, Honest Pricing. Zero Contracts.
           </h2>
           <p class="section-description" style="margin: 0.5rem auto 0;" data-i18n="pricing.description">
-            Scale effortlessly without percentage-of-spend penalties. Full money-back guarantee for 30 days.
+            No percentage-of-spend fees. 100% money-back guarantee for 30 days.
           </p>
 
           <!-- Billing Switcher Pill -->
@@ -1001,7 +1087,7 @@
                 <span class="live-badge" style="background: var(--surface-subtle); color: var(--color-text-secondary); border-color: var(--color-border-subtle);" data-i18n="pricing.starter_badge">Solo Founders</span>
               </div>
               <p style="font-size: 14px; color: var(--color-text-secondary); margin-top: 8px;" data-i18n="pricing.starter_desc">
-                For brands spending up to €3,000/month looking to kill bleeding ads fast and automate daily reporting.
+                For brands spending up to €3,000/mo looking to stop wasted spend and get daily reports.
               </p>
 
               <div class="pricing-price-display">
@@ -1029,12 +1115,12 @@
                 </li>
                 <li class="pricing-feature-item">
                   <span class="material-symbols-outlined text-primary" style="font-size: 20px;">check_circle</span>
-                  <span>30-Day Money-Back Guarantee</span>
+                  <span data-i18n="pricing.starter_f5">100% 30-Day Money-Back Guarantee</span>
                 </li>
               </ul>
             </div>
 
-            <a href="https://my.shelbyapp.ai/onboard?plan=starter&billing=monthly" id="starterPlanBtn" class="btn-secondary" style="width: 100%; padding: 0.875rem;">
+            <a href="https://my.shelbyapp.ai/onboard?plan=starter&billing=monthly" id="starterPlanBtn" data-open-checkout="starter" class="btn-secondary" style="width: 100%; padding: 0.875rem;">
               <span id="starterCtaText" data-i18n="pricing.starter_monthly_cta">Get Started for $27</span>
               <span class="material-symbols-outlined" style="font-size: 18px;">arrow_forward</span>
             </a>
@@ -1086,10 +1172,34 @@
               </ul>
             </div>
 
-            <a href="https://my.shelbyapp.ai/onboard?plan=pro&billing=monthly" id="proPlanBtn" class="btn-primary" style="width: 100%; padding: 0.875rem;">
+            <a href="https://my.shelbyapp.ai/onboard?plan=pro&billing=monthly" id="proPlanBtn" data-open-checkout="pro" class="btn-primary" style="width: 100%; padding: 0.875rem;">
               <span id="proCtaText" data-i18n="pricing.pro_monthly_cta">Claim Pro Access ($99/mo)</span>
               <span class="material-symbols-outlined" style="font-size: 18px;">arrow_forward</span>
             </a>
+          </div>
+        </div>
+
+        <!-- High-Impact Money-Back Guarantee Card -->
+        <div class="guarantee-box-wrapper">
+          <div class="guarantee-highlight-card">
+            <div class="guarantee-shield-emblem">
+              <span class="material-symbols-outlined" style="font-size: 44px;">verified_user</span>
+            </div>
+            <div class="guarantee-content">
+              <div class="flex items-center gap-2">
+                <span class="live-badge" style="background: rgba(37,211,102,0.18);" data-i18n="guarantee_box.badge">Risk-Free Promise</span>
+              </div>
+              <h3 class="guarantee-title" data-i18n="guarantee_box.heading">100% Risk-Free 30-Day Money-Back Guarantee</h3>
+              <p class="guarantee-desc" data-i18n="guarantee_box.description">
+                Try Shelby for 30 days. If it doesn't save you more ad budget than the subscription cost, simply text "Refund" in WhatsApp. You'll get an instant 100% refund. Zero questions asked, zero hassle, zero risk.
+              </p>
+              <div class="guarantee-pills-row">
+                <span class="guarantee-pill" data-i18n="guarantee_box.pill_instant">⚡ Instant Refund</span>
+                <span class="guarantee-pill" data-i18n="guarantee_box.pill_chat">💬 1 WhatsApp Message</span>
+                <span class="guarantee-pill" data-i18n="guarantee_box.pill_no_questions">🚫 No Questions Asked</span>
+                <span class="guarantee-pill" data-i18n="guarantee_box.pill_zero_risk">🔒 100% Risk-Free</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -1101,10 +1211,10 @@
         <div class="text-center max-w-2xl" style="margin: 0 auto;">
           <span class="section-badge" data-i18n="faq.badge">No Secrets</span>
           <h2 id="faq-heading" class="section-heading" style="margin-top: 0.5rem;" data-i18n="faq.heading">
-            Frequently Answered Questions
+            Frequently Asked Questions
           </h2>
           <p class="section-description" style="margin: 0.5rem auto 0;" data-i18n="faq.description">
-            Everything you need to know about autonomous safety, Meta compliance, and refunds.
+            Quick answers to common questions.
           </p>
         </div>
 
@@ -1116,7 +1226,7 @@
             </button>
             <div class="faq-content">
               <div class="faq-inner" data-i18n="faq.a1">
-                Shelby operates within hardcoded, customer-defined guardrails. By default, any budget adjustment exceeding 20% requires your explicit WhatsApp confirmation tap. You maintain complete veto authority at all times.
+                Shelby operates within strict guardrails you define. Any budget adjustment exceeding 20% requires your explicit WhatsApp confirmation tap. You maintain complete veto authority at all times.
               </div>
             </div>
           </div>
@@ -1128,7 +1238,7 @@
             </button>
             <div class="faq-content">
               <div class="faq-inner" data-i18n="faq.a2">
-                Under 90 seconds. You authenticate securely through Meta OAuth via our WhatsApp onboarding link. We request official Ads Management permissions via the official Meta Graph API v20.0. No password sharing ever.
+                Under 90 seconds. You authenticate securely through Meta OAuth via our WhatsApp onboarding link. You are ready to use Shelby immediately without sharing passwords.
               </div>
             </div>
           </div>
@@ -1140,7 +1250,7 @@
             </button>
             <div class="faq-content">
               <div class="faq-inner" data-i18n="faq.a3">
-                WhatsApp delivers a 98% open rate and zero login friction. Instead of sitting through two-factor authentication and waiting for 40-megabyte web dashboards to render, you check performance, pause ad sets, and scale winners right from the messaging app you already use every day.
+                WhatsApp delivers a 98% open rate and zero login friction. Instead of sitting through two-factor authentication and heavy dashboards with 40 tabs, you control ads right from the chat app you already use every day.
               </div>
             </div>
           </div>
@@ -1172,7 +1282,7 @@
               Put Your Meta Ads on Autopilot Tonight.
             </h2>
             <p style="font-size: 16px; opacity: 0.9; margin: 0;" data-i18n="cta_banner.description">
-              Setup takes 90 seconds. Shelby will find your bleeding ad sets before midnight.
+              Setup takes 2 minutes. Ready to use immediately. Full 30-day money-back guarantee.
             </p>
           </div>
 
@@ -1193,11 +1303,20 @@
     <div class="container">
       <div class="flex flex-col justify-between items-start gap-6">
         <div>
-          <a href="#" class="brand-logo" aria-label="Shelby AI">
+          <a href="#" class="brand-logo" aria-label="Shelby.ai">
             <div class="brand-mark" aria-hidden="true">
-              <svg viewBox="0 0 32 32"><path d="M16 4a12 12 0 0 0-10.4 18l-1.6 6 6.2-1.6A12 12 0 1 0 16 4z"/></svg>
+              <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <linearGradient id="shelbyGradFtr" x1="7" y1="8" x2="25" y2="24" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#25D366"/>
+                    <stop offset="1" stop-color="#66FF8E"/>
+                  </linearGradient>
+                </defs>
+                <path d="M21 8.5H12.5C9.46 8.5 7 10.96 7 14C7 17.04 9.46 17.5 12.5 17.5H19.5C22.54 17.5 25 18 25 21C25 24 22.54 26.5 19.5 26.5H10" stroke="url(#shelbyGradFtr)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+                <circle cx="21" cy="8.5" r="1.6" fill="#66FF8E"/>
+              </svg>
             </div>
-            <span class="brand-name">Shelby AI</span>
+            <span class="brand-name">Shelby<span class="brand-ai">.ai</span></span>
           </a>
           <p style="font-size: 13px; color: var(--color-text-secondary); max-width: 440px; margin-top: 6px;" data-i18n="footer.tagline">
             Autonomous conversational ad intelligence and real-time WhatsApp conversion engine for modern digital brands.
@@ -1245,84 +1364,188 @@
     <span data-i18n="floating.text">Choose Plan</span>
   </a>
 
-  <!-- ONBOARDING MODAL / NETLIFY LEAD CAPTURE -->
-  <div class="modal-backdrop" id="launchModal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
-    <div class="modal-dialog modal-content">
-      <div class="modal-header">
-        <div class="flex items-center gap-2">
-          <div class="brand-mark" style="width: 32px; height: 32px; border-radius: 8px;" aria-hidden="true">
-            <svg viewBox="0 0 32 32" style="width: 17px; height: 17px;"><path d="M16 4a12 12 0 0 0-10.4 18l-1.6 6 6.2-1.6A12 12 0 1 0 16 4z"/></svg>
-          </div>
-          <div>
-            <h3 id="modal-title" style="font-size: 16px; font-weight: 700; margin: 0; color: var(--color-text-primary);" data-i18n="modal.title">
-              Launch Shelby on WhatsApp
-            </h3>
-            <span style="font-size: 11px; color: var(--color-text-muted);" data-i18n="modal.subtitle">90-second Meta OAuth Connection</span>
-          </div>
-        </div>
-        <button type="button" id="closeModalBtn" aria-label="Close modal" data-i18n-aria="modal.close_aria" style="color: var(--color-text-muted); padding: 4px;">
-          <span class="material-symbols-outlined">close</span>
-        </button>
-      </div>
+  <!-- NETLIFY FORM REGISTRATION (Hidden) -->
+  <form name="launch-access" method="POST" data-netlify="true" hidden>
+    <input type="hidden" name="form-name" value="launch-access">
+    <input type="text" name="name">
+    <input type="email" name="email">
+    <input type="tel" name="phone">
+    <input type="text" name="plan">
+    <input type="text" name="amount">
+  </form>
 
-      <div class="modal-body">
-        <!-- Direct WhatsApp Quick Link Option -->
-        <div style="background: var(--surface-subtle); border-radius: var(--radius-md); padding: 1rem; border: 1px solid var(--color-border-subtle); text-align: center; margin-bottom: 1.5rem;">
-          <p style="font-size: 14px; font-weight: 600; margin-bottom: 0.75rem; color: var(--color-text-primary);" data-i18n="modal.instant_title">
-            Instant 1-Tap WhatsApp Connection
+  <!-- CHECKOUT & PAYMENT MODAL (Shelby.ai Product, Clean Light Design) -->
+  <div id="co-modal" class="co-modal co-modal--wide" role="dialog" aria-modal="true" aria-label="Secure checkout" aria-hidden="true">
+    <div class="co-backdrop" data-co-close></div>
+    <div class="co-shell" role="document">
+      <button class="co-x" type="button" aria-label="Close" data-co-close>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+      <div class="co-cols">
+
+        <!-- LEFT — Feature benefits & guarantee for Shelby.ai -->
+        <aside class="co-aside">
+          <span class="co-aside-badge">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v6c0 4.4-3 7.6-7 9-4-1.4-7-4.6-7-9V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg>
+            <span data-i18n="checkout.trusted_badge">Certified Meta Tech Provider</span>
+          </span>
+          <h3 class="co-aside-h" data-i18n="checkout.aside_heading">
+            Automate your Meta Ads in 90 seconds.
+          </h3>
+          <p class="co-aside-sub" data-i18n="checkout.aside_sub">
+            Connect your Meta Ad Account and start managing campaigns directly inside WhatsApp.
           </p>
-          <a href="https://wa.me/?text=Hi%20Shelby,%20I%20want%20to%20connect%20my%20Meta%20Ads%20account." target="_blank" rel="noopener noreferrer" class="btn-primary" style="width: 100%; padding: 0.75rem;">
-            <span class="material-symbols-outlined" style="font-size: 18px;">chat</span>
-            <span data-i18n="modal.open_btn">Open in WhatsApp Directly</span>
-          </a>
-        </div>
 
-        <div style="display: flex; align-items: center; text-align: center; color: var(--color-text-muted); font-size: 12px; margin: 1.25rem 0;">
-          <div style="flex: 1; height: 1px; background: var(--color-border-subtle);"></div>
-          <span style="padding: 0 0.75rem; text-transform: uppercase; font-weight: 600;" data-i18n="modal.divider_text">or receive setup link via SMS/Email</span>
-          <div style="flex: 1; height: 1px; background: var(--color-border-subtle);"></div>
-        </div>
+          <ul class="co-perks">
+            <li class="co-perk">
+              <span class="co-perk-ic" aria-hidden="true">
+                <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14.75 6.25L8.5 13.75L5.25 10" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+              <div>
+                <b data-i18n="checkout.perk_1_title">Direct WhatsApp Control</b>
+                <span data-i18n="checkout.perk_1_desc">No dashboards to learn. Chat, scale, and pause ads with plain text messages.</span>
+              </div>
+            </li>
+            <li class="co-perk">
+              <span class="co-perk-ic" aria-hidden="true">
+                <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14.75 6.25L8.5 13.75L5.25 10" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+              <div>
+                <b data-i18n="checkout.perk_2_title">180s Overnight Leak Protection</b>
+                <span data-i18n="checkout.perk_2_desc">Autonomous watchdog auto-pauses CPA spikes while you sleep.</span>
+              </div>
+            </li>
+            <li class="co-perk">
+              <span class="co-perk-ic" aria-hidden="true">
+                <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14.75 6.25L8.5 13.75L5.25 10" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+              <div>
+                <b data-i18n="checkout.perk_3_title">Daily 9 AM Executive Briefing</b>
+                <span data-i18n="checkout.perk_3_desc">Yesterday's spend, blended ROAS, and key metrics delivered every morning.</span>
+              </div>
+            </li>
+          </ul>
 
-        <!-- Netlify Ready Lead Form -->
-        <form name="launch-access" method="POST" action="https://my.shelbyapp.ai/onboard" data-netlify="true" id="launchAccessForm">
-          <input type="hidden" name="form-name" value="launch-access">
-          
-          <div style="margin-bottom: 1rem;">
-            <label for="leadEmail" style="display: block; font-size: 13px; font-weight: 600; margin-bottom: 4px; color: var(--color-text-primary);" data-i18n="modal.email_label">
-              Your Work Email
-            </label>
-            <input type="email" id="leadEmail" name="email" required placeholder="founder@yourbrand.com" data-i18n-placeholder="modal.email_placeholder" style="width: 100%; padding: 0.65rem 0.85rem; border-radius: var(--radius-sm); border: 1px solid var(--color-border-subtle); font-size: 14px; outline: none;">
+          <div class="co-aside-guar">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v6c0 4.4-3 7.6-7 9-4-1.4-7-4.6-7-9V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg>
+            <span><b data-i18n="checkout.guar_title">100% 30-Day money-back guarantee.</b> <span data-i18n="checkout.guar_desc">Text "Refund" inside WhatsApp within 30 days for an instant 100% refund &mdash; no questions asked.</span></span>
+          </div>
+        </aside>
+
+        <!-- RIGHT — Checkout Panel -->
+        <div class="co-panel">
+          <div class="co-tabs" role="tablist" aria-label="Checkout steps">
+            <button type="button" class="co-tab on" id="coTabCustomer" role="tab" aria-selected="true">
+              <span class="co-tab-n">1</span>
+              <span data-i18n="checkout.tab_customer">Customer</span>
+            </button>
+            <button type="button" class="co-tab" id="coTabPayment" role="tab" aria-selected="false">
+              <span class="co-tab-n">2</span>
+              <span data-i18n="checkout.tab_payment">Payment</span>
+            </button>
           </div>
 
-          <div style="margin-bottom: 1.25rem;">
-            <label for="leadPhone" style="display: block; font-size: 13px; font-weight: 600; margin-bottom: 4px; color: var(--color-text-primary);" data-i18n="modal.phone_label">
-              WhatsApp Phone Number (with country code)
-            </label>
-            <input type="tel" id="leadPhone" name="phone" required placeholder="+1 555 123 4567" data-i18n-placeholder="modal.phone_placeholder" style="width: 100%; padding: 0.65rem 0.85rem; border-radius: var(--radius-sm); border: 1px solid var(--color-border-subtle); font-size: 14px; outline: none;">
+          <!-- STEP 1: CUSTOMER TAB -->
+          <div class="co-tabpanel" id="coCustomer" role="tabpanel">
+            <p class="co-flab" data-i18n="checkout.contact_info_label">Contact information</p>
+            <input id="coEmail" class="co-in" type="email" autocomplete="email" inputmode="email" placeholder="Your work email address" required>
+            <input id="coName" class="co-in" type="text" autocomplete="name" placeholder="Your name" required>
+            <input id="coPhone" class="co-in" type="tel" autocomplete="tel" inputmode="tel" placeholder="WhatsApp phone number (with country code)" required>
+            <div id="coCustErr" class="co-err" role="alert" aria-live="polite"></div>
+
+            <div class="co-planhead">
+              <p class="co-flab" data-i18n="checkout.choose_plan_label" style="margin: 0;">Choose your plan</p>
+              <div class="co-billswitch" role="group" aria-label="Billing frequency selector">
+                <button type="button" class="co-billbtn active" id="coBillMonthly" data-i18n="checkout.monthly_toggle">Monthly</button>
+                <button type="button" class="co-billbtn" id="coBillAnnual">
+                  <span data-i18n="checkout.annual_toggle">Annual</span>
+                  <span class="co-billbadge" data-i18n="checkout.annual_badge">Save 25%</span>
+                </button>
+              </div>
+            </div>
+
+            <div id="coPlans" class="co-plans" role="radiogroup" aria-label="Choose your plan">
+              <button type="button" class="co-planopt sel" data-plan="starter" role="radio" aria-checked="true">
+                <span class="co-planradio" aria-hidden="true"></span>
+                <span class="co-plantxt">
+                  <b>STARTER AUTOMATION</b>
+                  <i id="coStarterSub">1 Meta Ad Account &middot; 24/7 WhatsApp AI Assistant &middot; Daily 9 AM Briefing</i>
+                </span>
+                <span class="co-planprice" id="coStarterPrice">$27/mo</span>
+              </button>
+              <button type="button" class="co-planopt" data-plan="pro" role="radio" aria-checked="false">
+                <span class="co-planradio" aria-hidden="true"></span>
+                <span class="co-plantxt">
+                  <b>PRO AUTONOMOUS GROWTH <span class="co-planpop">Popular</span></b>
+                  <i id="coProSub">Up to 5 Meta Ad Accounts &middot; Autonomous 4x+ ROAS Scaling &middot; Hook &amp; Copy AI</i>
+                </span>
+                <span class="co-planprice" id="coProPrice">$99/mo</span>
+              </button>
+            </div>
+
+            <!-- FOOTER SUMMARY & CONTINUE BUTTON -->
+            <div class="co-tabfoot">
+              <div class="co-summary">
+                <div id="coLines" class="co-lines"></div>
+                <div class="co-sumtotal">
+                  <span id="coSumPeriodLabel">Total <i>&middot; monthly</i></span>
+                  <span class="co-total-amt">$27</span>
+                </div>
+              </div>
+              <button type="button" class="co-cta" id="coContinueBtn">
+                <span>Continue to payment</span>
+                <span class="co-cta-tot" id="coContinueTot">$27</span>
+              </button>
+              <p class="co-mini">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="11" width="16" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>
+                <span id="coBillingMiniNotice">Billed monthly &middot; Cancel anytime in 1 tap</span>
+              </p>
+            </div>
           </div>
 
-          <button type="submit" class="btn-primary" style="width: 100%; padding: 0.875rem;">
-            <span data-i18n="modal.submit_btn">Send WhatsApp Connection Link</span>
-            <span class="material-symbols-outlined" style="font-size: 18px;">arrow_forward</span>
-          </button>
-        </form>
+          <!-- STEP 2: PAYMENT TAB -->
+          <form class="co-tabpanel" id="coPayment" role="tabpanel" novalidate hidden>
+            <p class="co-flab">Company <i>(optional &mdash; for your invoice)</i></p>
+            <input id="coCompany" class="co-in" type="text" autocomplete="organization" placeholder="Company name">
+            <div id="coBiz" class="co-biz" aria-hidden="true">
+              <input id="coBizAddr" class="co-in" type="text" autocomplete="street-address" placeholder="Legal / registered address">
+              <div class="co-biz-grid">
+                <input id="coBizReg" class="co-in" type="text" placeholder="Registration No.">
+                <input id="coBizVat" class="co-in" type="text" placeholder="VAT No. (if any)">
+              </div>
+            </div>
 
-        <!-- Form Success State -->
-        <div id="formSuccessState" style="display: none; text-align: center; padding: 1.5rem 0;">
-          <span class="material-symbols-outlined text-primary" style="font-size: 48px;">check_circle</span>
-          <h4 style="font-size: 18px; font-weight: 700; margin: 0.5rem 0;" data-i18n="modal.success_title">Connection Link Dispatched!</h4>
-          <p style="font-size: 14px; color: var(--color-text-secondary); margin: 0 0 1.25rem;" data-i18n="modal.success_desc">
-            Check your WhatsApp for the secure Meta OAuth authorization token.
-          </p>
-          <a id="thankYouRedirectBtn" href="https://my.shelbyapp.ai/onboard" class="btn-primary" style="width: 100%; padding: 0.85rem; font-size: 15px;">
-            <span data-i18n="modal.continue_onboarding">Continue to Onboarding</span>
-            <span class="material-symbols-outlined" style="font-size: 18px;">arrow_forward</span>
-          </a>
+            <p class="co-flab">Card details</p>
+            <div id="coCardWrap" class="co-card"><div id="coCard"></div></div>
+            <div id="coError" class="co-err" role="alert" aria-live="polite"></div>
+
+            <div class="co-tabfoot">
+              <div class="co-summary">
+                <div id="coLines2" class="co-lines"></div>
+                <div class="co-sumtotal">
+                  <span id="coSumPeriodLabel2">Total <i>&middot; monthly</i></span>
+                  <span class="co-total-amt">$27</span>
+                </div>
+              </div>
+              <button id="coPay" class="co-cta" type="submit">
+                <span class="co-pay-txt" id="coPayTxt">Start Subscription ($27/mo)</span>
+                <span class="co-pay-spin" aria-hidden="true"></span>
+              </button>
+              <button type="button" class="co-back" id="coBackCust">&lsaquo; Back to details</button>
+              <p class="co-mini">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="11" width="16" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>
+                <span>Secure payment via <b>Stripe</b> &middot; Cancel anytime in 1 tap</span>
+              </p>
+            </div>
+          </form>
+
         </div>
       </div>
     </div>
   </div>
 
+  <!-- Stripe.js v3 (Payment Element & Card Processing) -->
+  <script src="https://js.stripe.com/v3/"></script>
   <!-- JavaScript Module -->
   <script type="module" src="js/main.js"></script>
 </body>

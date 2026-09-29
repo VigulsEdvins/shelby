@@ -11,6 +11,7 @@ import { initTelemetryHUD } from './telemetry.js';
 import { initPricing } from './pricing.js';
 import { initFAQ } from './faq.js';
 import { initModal } from './modal.js';
+import { initCheckout } from './checkout.js';
 
 document.addEventListener('DOMContentLoaded', async () => {
   // Initialize internationalization before or in parallel with modules
@@ -24,4 +25,5 @@ document.addEventListener('DOMContentLoaded', async () => {
   initPricing();
   initFAQ();
   initModal();
+  initCheckout();
 });

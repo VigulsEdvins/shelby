@@ -1,0 +1,895 @@
+/**
+ * Shelby.ai - 2-Step Checkout Modal Styles
+ * Completely aligned with Shelby.ai Light Design System (DESIGN.md / variables.css)
+ */
+
+.co-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 100001;
+  display: none;
+  align-items: flex-start;
+  justify-content: center;
+  padding: clamp(14px, 3.5vh, 40px) 14px;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.co-modal.show {
+  display: flex;
+}
+
+.co-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.55);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  animation: coFade 0.22s ease-out;
+}
+
+@keyframes coFade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.co-shell {
+  position: relative;
+  width: 100%;
+  max-width: 1040px;
+  margin: auto;
+  border-radius: var(--radius-lg, 24px);
+  overflow: hidden;
+  background-color: var(--surface-card, #ffffff);
+  border: 1px solid var(--color-border-subtle, #e2e8f0);
+  box-shadow: 0 25px 60px -15px rgba(15, 23, 42, 0.18), 0 0 0 1px rgba(0, 109, 47, 0.05);
+  animation: coRise 0.3s cubic-bezier(0.16, 1, 0.3, 1) both;
+  color: var(--color-text-primary, #0f172a);
+  font-family: var(--font-family-body, 'Geist', sans-serif);
+}
+
+@keyframes coRise {
+  from {
+    opacity: 0;
+    transform: translateY(16px) scale(0.985);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.co-x {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  z-index: 10;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-full, 9999px);
+  border: 1px solid var(--color-border-subtle, #e2e8f0);
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  background: var(--surface-card, #ffffff);
+  color: var(--color-text-muted, #64748b);
+  box-shadow: var(--shadow-level-1, 0 1px 3px rgba(15, 23, 42, 0.04));
+  transition: all var(--transition-fast, 150ms ease);
+}
+
+.co-x:hover {
+  background: var(--surface-subtle, #f1f5f9);
+  color: var(--color-text-primary, #0f172a);
+  transform: rotate(90deg);
+}
+
+.co-x svg {
+  width: 18px;
+  height: 18px;
+}
+
+.co-cols {
+  display: grid;
+  grid-template-columns: 0.84fr 1fr;
+}
+
+/* ==========================================================================
+   LEFT COLUMN — Social Proof & Trust (Light Emerald Glow)
+   ========================================================================== */
+.co-aside {
+  padding: clamp(26px, 3.2vw, 42px);
+  background-color: #f6f9f8;
+  background-image: 
+    radial-gradient(circle 500px at 50% 15%, rgba(37, 211, 102, 0.12), transparent 70%),
+    radial-gradient(circle 350px at 90% 85%, rgba(16, 185, 129, 0.06), transparent 60%),
+    linear-gradient(180deg, #f8fafc 0%, #f0fdf4 100%);
+  border-right: 1px solid var(--color-border-subtle, #e2e8f0);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.co-aside-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  align-self: flex-start;
+  font-family: var(--font-family-display, 'Space Grotesk', sans-serif);
+  font-weight: 700;
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-primary, #006d2f);
+  background: rgba(37, 211, 102, 0.14);
+  border: 1px solid rgba(37, 211, 102, 0.35);
+  padding: 4px 12px;
+  border-radius: var(--radius-full, 9999px);
+}
+
+.co-aside-badge svg {
+  width: 14px;
+  height: 14px;
+  color: var(--color-primary, #006d2f);
+}
+
+.co-aside-h {
+  font-family: var(--font-family-display, 'Space Grotesk', sans-serif);
+  font-weight: 700;
+  font-size: clamp(1.35rem, 2vw, 1.7rem);
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+  margin: 0;
+  color: var(--color-text-primary, #0f172a);
+}
+
+.co-aside-h em {
+  font-style: normal;
+  color: var(--color-primary, #006d2f);
+}
+
+.co-aside-sub {
+  margin: -6px 0 2px;
+  font-size: 0.88rem;
+  line-height: 1.5;
+  color: var(--color-text-secondary, #334155);
+}
+
+.co-perks {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.co-perk {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  background: var(--surface-card, #ffffff);
+  border: 1px solid var(--color-border-subtle, #e2e8f0);
+  border-radius: var(--radius-md, 14px);
+  padding: 13px 15px;
+  box-shadow: var(--shadow-level-1, 0 1px 3px rgba(15, 23, 42, 0.04));
+}
+
+.co-perk-ic {
+  flex: 0 0 22px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: rgba(37, 211, 102, 0.16);
+  color: var(--color-primary, #00873a);
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  margin-top: 2px;
+  flex-shrink: 0;
+  line-height: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.co-perk-ic svg {
+  display: block !important;
+  width: 12px !important;
+  height: 12px !important;
+  margin: auto !important;
+  flex-shrink: 0 !important;
+}
+
+.co-perk b {
+  display: block;
+  font-family: var(--font-family-display, 'Space Grotesk', sans-serif);
+  font-size: 0.86rem;
+  font-weight: 700;
+  color: var(--color-text-primary, #0f172a);
+  margin-bottom: 2px;
+}
+
+.co-perk span {
+  display: block;
+  font-size: 0.79rem;
+  line-height: 1.45;
+  color: var(--color-text-secondary, #475569);
+}
+
+.co-aside-guar {
+  margin-top: auto;
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  padding: 14px 16px;
+  border-radius: var(--radius-md, 16px);
+  border: 1px solid rgba(37, 211, 102, 0.35);
+  background: rgba(37, 211, 102, 0.08);
+  font-size: 0.82rem;
+  line-height: 1.45;
+  color: #065f46;
+}
+
+.co-aside-guar svg {
+  width: 20px;
+  height: 20px;
+  color: var(--color-primary, #006d2f);
+  flex: 0 0 auto;
+  margin-top: 1px;
+}
+
+.co-aside-guar b {
+  color: #064e3b;
+  font-weight: 700;
+}
+
+/* ==========================================================================
+   RIGHT COLUMN — Interactive Checkout Panel (Clean Light)
+   ========================================================================== */
+.co-panel {
+  padding: clamp(24px, 2.8vw, 40px);
+  max-height: min(94vh, 960px);
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  background: var(--surface-card, #ffffff);
+}
+
+.co-tabs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+  padding: 5px;
+  border-radius: var(--radius-full, 9999px);
+  background: var(--surface-subtle, #f1f5f9);
+  border: 1px solid var(--color-border-subtle, #e2e8f0);
+  margin: 0 0 24px;
+}
+
+.co-tab {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border: 0;
+  border-radius: var(--radius-full, 9999px);
+  cursor: pointer;
+  background: transparent;
+  color: var(--color-text-muted, #64748b);
+  font-family: var(--font-family-display, 'Space Grotesk', sans-serif);
+  font-weight: 600;
+  font-size: 0.92rem;
+  transition: all var(--transition-fast, 150ms ease);
+}
+
+.co-tab .co-tab-n {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 0.74rem;
+  font-weight: 700;
+  background: var(--color-border-subtle, #e2e8f0);
+  color: var(--color-text-secondary, #334155);
+  transition: all var(--transition-fast, 150ms ease);
+}
+
+.co-tab.on {
+  background: #ffffff;
+  color: var(--color-text-primary, #0f172a);
+  font-weight: 700;
+  box-shadow: var(--shadow-level-1, 0 1px 3px rgba(15, 23, 42, 0.08));
+}
+
+.co-tab.on .co-tab-n {
+  background: var(--color-primary-container, #25d366);
+  color: var(--color-on-primary-container, #004b1f);
+  font-weight: 800;
+}
+
+.co-tab.is-done {
+  color: var(--color-primary, #006d2f);
+}
+
+.co-tab.is-done .co-tab-n {
+  background: #dcfce7;
+  font-size: 0;
+}
+
+.co-tab.is-done .co-tab-n::after {
+  content: "✓";
+  font-size: 0.74rem;
+  color: #15803d;
+  font-weight: 800;
+}
+
+.co-tabpanel {
+  animation: coStepIn 0.28s ease-out both;
+}
+
+.co-tabpanel[hidden] {
+  display: none !important;
+}
+
+@keyframes coStepIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.co-flab {
+  font-family: var(--font-family-display, 'Space Grotesk', sans-serif);
+  font-weight: 700;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-muted, #64748b);
+  margin: 22px 0 9px;
+}
+
+.co-flab:first-child {
+  margin-top: 0;
+}
+
+.co-flab i {
+  font-style: normal;
+  text-transform: none;
+  letter-spacing: 0;
+  color: var(--color-text-muted, #94a3b8);
+  font-weight: 500;
+}
+
+.co-in {
+  width: 100%;
+  padding: 12px 15px;
+  margin-bottom: 10px;
+  border-radius: var(--radius-sm, 8px);
+  border: 1px solid var(--color-border-subtle, #e2e8f0);
+  background: #ffffff;
+  color: var(--color-text-primary, #0f172a);
+  font-family: var(--font-family-body, 'Geist', sans-serif);
+  font-size: 14.5px;
+  transition: all var(--transition-fast, 150ms ease);
+  box-sizing: border-box;
+}
+
+.co-in:hover {
+  border-color: var(--color-border-strong, #cbd5e1);
+}
+
+.co-in:focus {
+  outline: none;
+  background: #ffffff;
+  border-color: var(--color-primary-container, #25d366);
+  box-shadow: 0 0 0 3px rgba(37, 211, 102, 0.22);
+}
+
+.co-in::placeholder {
+  color: #94a3b8;
+}
+
+/* ==========================================================================
+   Plan Selection Radios (Light)
+   ========================================================================== */
+.co-plans {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.co-planopt {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+  text-align: left;
+  padding: 16px 18px;
+  border-radius: var(--radius-md, 16px);
+  cursor: pointer;
+  border: 1.5px solid var(--color-border-subtle, #e2e8f0);
+  background: var(--surface-base, #f8fafc);
+  color: var(--color-text-primary, #0f172a);
+  transition: all var(--transition-fast, 150ms ease);
+  box-sizing: border-box;
+}
+
+.co-planopt:hover {
+  background: #ffffff;
+  border-color: var(--color-primary-container, #25d366);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-level-1, 0 1px 3px rgba(15, 23, 42, 0.04));
+}
+
+.co-planopt.sel {
+  border-color: var(--color-primary-container, #25d366);
+  background: #ffffff;
+  box-shadow: 0 4px 18px rgba(37, 211, 102, 0.16), 0 0 0 1px rgba(37, 211, 102, 0.4);
+}
+
+.co-planradio {
+  flex: 0 0 auto;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 2px solid var(--color-border-strong, #cbd5e1);
+  position: relative;
+  transition: all var(--transition-fast, 150ms ease);
+  background: #ffffff;
+}
+
+.co-planopt.sel .co-planradio {
+  border-color: var(--color-primary, #006d2f);
+}
+
+.co-planopt.sel .co-planradio::after {
+  content: "";
+  position: absolute;
+  inset: 3px;
+  border-radius: 50%;
+  background: var(--color-primary-container, #25d366);
+}
+
+.co-plantxt {
+  flex: 1 1 auto;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.co-plantxt b {
+  font-family: var(--font-family-display, 'Space Grotesk', sans-serif);
+  font-weight: 700;
+  font-size: 0.98rem;
+  letter-spacing: 0.01em;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--color-text-primary, #0f172a);
+}
+
+.co-plantxt i {
+  font-style: normal;
+  font-size: 0.81rem;
+  color: var(--color-text-secondary, #334155);
+  line-height: 1.35;
+}
+
+.co-planpop {
+  font-family: var(--font-family-display, 'Space Grotesk', sans-serif);
+  font-weight: 700;
+  font-size: 10px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-on-primary-container, #004b1f);
+  background: var(--color-primary-container, #25d366);
+  padding: 3px 9px;
+  border-radius: var(--radius-full, 9999px);
+  box-shadow: 0 1px 4px rgba(37, 211, 102, 0.3);
+}
+
+.co-planprice {
+  flex: 0 0 auto;
+  font-family: var(--font-family-display, 'Space Grotesk', sans-serif);
+  font-weight: 700;
+  font-size: 1.15rem;
+  color: var(--color-primary, #006d2f);
+}
+
+/* ==========================================================================
+   Plan Header & Monthly / Annual Switcher (Light)
+   ========================================================================== */
+.co-planhead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 22px 0 10px;
+}
+
+.co-billswitch {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  padding: 3px;
+  border-radius: var(--radius-full, 9999px);
+  background: var(--surface-subtle, #f1f5f9);
+  border: 1px solid var(--color-border-subtle, #e2e8f0);
+}
+
+.co-billbtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 12px;
+  border: 0;
+  border-radius: var(--radius-full, 9999px);
+  background: transparent;
+  color: var(--color-text-secondary, #334155);
+  font-family: var(--font-family-display, 'Space Grotesk', sans-serif);
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-fast, 150ms ease);
+}
+
+.co-billbtn:hover {
+  color: var(--color-text-primary, #0f172a);
+}
+
+.co-billbtn.active {
+  background: #ffffff;
+  color: var(--color-text-primary, #0f172a);
+  font-weight: 700;
+  box-shadow: 0 1px 4px rgba(15, 23, 42, 0.08);
+}
+
+.co-billbadge {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  background: rgba(37, 211, 102, 0.16);
+  color: var(--color-primary, #006d2f);
+  border: 1px solid rgba(37, 211, 102, 0.35);
+  padding: 1px 6px;
+  border-radius: var(--radius-full, 9999px);
+}
+
+/* ==========================================================================
+   Order Summary & Totals (Light)
+   ========================================================================== */
+.co-tabfoot {
+  padding-top: 8px;
+  margin-top: 14px;
+  border-top: 1px solid var(--color-border-subtle, #e2e8f0);
+}
+
+.co-summary {
+  margin: 10px 0 16px;
+  padding: 14px 16px;
+  border-radius: var(--radius-md, 16px);
+  border: 1px solid var(--color-border-subtle, #e2e8f0);
+  background: var(--surface-base, #f8fafc);
+}
+
+.co-lines {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.co-line {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 0.88rem;
+  color: var(--color-text-secondary, #334155);
+}
+
+.co-line span:last-child {
+  color: var(--color-text-primary, #0f172a);
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.co-sumtotal {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid var(--color-border-subtle, #e2e8f0);
+}
+
+.co-sumtotal > span:first-child {
+  font-family: var(--font-family-display, 'Space Grotesk', sans-serif);
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--color-text-primary, #0f172a);
+}
+
+.co-sumtotal i {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 0.8rem;
+  color: var(--color-text-muted, #64748b);
+}
+
+.co-total-amt {
+  font-family: var(--font-family-display, 'Space Grotesk', sans-serif);
+  font-weight: 700;
+  font-size: 1.6rem;
+  color: var(--color-primary, #006d2f);
+}
+
+/* ==========================================================================
+   Action Buttons (WhatsApp Neon Green from Shelby design system)
+   ========================================================================== */
+.co-cta {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 0.95rem 1.5rem;
+  border: 0;
+  border-radius: var(--radius-full, 9999px);
+  cursor: pointer;
+  background-color: var(--color-primary-container, #25d366) !important;
+  color: var(--color-on-primary-container, #004b1f) !important;
+  font-family: var(--font-family-display, 'Space Grotesk', sans-serif);
+  font-weight: 700;
+  font-size: 1.05rem;
+  letter-spacing: -0.01em;
+  box-shadow: var(--shadow-primary-halo, 0 4px 18px rgba(37, 211, 102, 0.35));
+  transition: all var(--transition-fast, 150ms ease);
+}
+
+.co-cta:hover {
+  background-color: var(--color-primary-fixed-dim, #3de273) !important;
+  box-shadow: var(--shadow-primary-glow, 0 8px 30px rgba(37, 211, 102, 0.45));
+  transform: translateY(-1px);
+}
+
+.co-cta:active {
+  transform: scale(0.985);
+}
+
+.co-cta[disabled] {
+  cursor: default;
+  opacity: 0.85;
+}
+
+.co-cta-tot {
+  background: rgba(0, 75, 31, 0.16);
+  padding: 3px 10px;
+  border-radius: var(--radius-full, 9999px);
+  font-size: 0.95rem;
+  color: var(--color-on-primary-container, #004b1f);
+  font-weight: 800;
+}
+
+.co-cta.is-done {
+  background: #15803d !important;
+  color: #ffffff !important;
+}
+
+.co-pay-spin {
+  display: none;
+  width: 20px;
+  height: 20px;
+  border: 2.5px solid rgba(0, 75, 31, 0.3);
+  border-top-color: #004b1f;
+  border-radius: 50%;
+}
+
+.co-cta.is-busy .co-pay-spin {
+  display: inline-block;
+  animation: coSpin 0.7s linear infinite;
+}
+
+.co-cta.is-busy .co-pay-txt {
+  opacity: 0.7;
+}
+
+@keyframes coSpin {
+  to { transform: rotate(360deg); }
+}
+
+.co-back {
+  display: block;
+  width: 100%;
+  margin-top: 10px;
+  padding: 8px;
+  background: none;
+  border: 0;
+  color: var(--color-text-muted, #64748b);
+  font-family: var(--font-family-body, 'Geist', sans-serif);
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+  text-align: center;
+  transition: color var(--transition-fast, 150ms ease);
+}
+
+.co-back:hover {
+  color: var(--color-primary, #006d2f);
+}
+
+.co-mini {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin: 12px 0 2px;
+  font-size: 0.76rem;
+  line-height: 1.5;
+  color: var(--color-text-muted, #64748b);
+  text-align: center;
+}
+
+.co-mini svg {
+  width: 15px;
+  height: 15px;
+  color: var(--color-primary, #006d2f);
+  flex-shrink: 0;
+}
+
+.co-mini b {
+  color: var(--color-text-primary, #0f172a);
+  font-weight: 600;
+}
+
+.co-err {
+  font-size: 0.82rem;
+  color: #dc2626;
+  line-height: 1.4;
+  margin-bottom: 8px;
+}
+
+.co-err:empty {
+  display: none;
+}
+
+/* ==========================================================================
+   Company Invoice Details (Collapsible)
+   ========================================================================== */
+.co-biz {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s;
+}
+
+.co-biz.is-open {
+  max-height: 280px;
+  opacity: 1;
+  margin-bottom: 6px;
+}
+
+.co-biz-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+/* ==========================================================================
+   Card Input Details (Light Theme)
+   ========================================================================== */
+.co-card {
+  padding: 14px 16px;
+  background: #ffffff;
+  border: 1px solid var(--color-border-subtle, #e2e8f0);
+  border-radius: var(--radius-sm, 8px);
+  transition: all var(--transition-fast, 150ms ease);
+}
+
+.co-card:hover {
+  border-color: var(--color-border-strong, #cbd5e1);
+}
+
+.co-card.is-focus {
+  border-color: var(--color-primary-container, #25d366);
+  background: #ffffff;
+  box-shadow: 0 0 0 3px rgba(37, 211, 102, 0.22);
+}
+
+.co-card.is-loading {
+  opacity: 0.6;
+}
+
+.co-card #coCard {
+  min-height: 22px;
+}
+
+.co-card-fallback-row {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.co-card-fallback-subgrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  padding-top: 8px;
+  border-top: 1px solid var(--color-border-subtle, #e2e8f0);
+}
+
+.co-card-ic {
+  flex: 0 0 auto;
+  width: 24px;
+  height: 18px;
+  display: grid;
+  place-items: center;
+  color: var(--color-primary, #006d2f);
+}
+
+.co-card-input-main {
+  flex: 1 1 auto;
+  background: transparent;
+  border: 0;
+  color: var(--color-text-primary, #0f172a);
+  font-family: monospace, var(--font-family-body);
+  font-size: 14.5px;
+  letter-spacing: 0.04em;
+  outline: none;
+  width: 100%;
+}
+
+.co-card-subin {
+  background: transparent;
+  border: 0;
+  color: var(--color-text-primary, #0f172a);
+  font-family: monospace, var(--font-family-body);
+  font-size: 14px;
+  outline: none;
+  width: 100%;
+}
+
+.co-card-subin::placeholder,
+.co-card-input-main::placeholder {
+  color: #94a3b8;
+}
+
+/* ==========================================================================
+   Responsive Breakpoints
+   ========================================================================== */
+@media (max-width: 860px) {
+  .co-cols {
+    grid-template-columns: 1fr;
+  }
+  .co-aside {
+    display: none;
+  }
+  .co-shell {
+    max-width: 520px;
+    border-radius: var(--radius-md, 18px);
+  }
+  .co-panel {
+    max-height: 92vh;
+    padding: 24px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .co-bump-body img {
+    flex-basis: 64px;
+    width: 64px;
+    height: 48px;
+  }
+  .co-biz-grid {
+    grid-template-columns: 1fr;
+  }
+  .co-modal {
+    padding: 10px 8px;
+  }
+}
