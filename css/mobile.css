@@ -1,0 +1,737 @@
+/**
+ * Shelby.ai Mobile Responsive Improvements
+ * Targets: xs (0-480px), sm (481-640px), md (641-768px)
+ * Applied on top of components.css overrides.
+ */
+
+/* ==========================================================================
+   CRITICAL: Prevent horizontal overflow on all screens
+   ========================================================================== */
+html,
+body {
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
+/* Clamp all sections to viewport width */
+.hero-section,
+.proof-section,
+.profit-calc-section,
+.autopsy-section,
+.comparison-section,
+.pricing-section,
+.faq-section,
+.cta-banner-section,
+.site-footer {
+  overflow-x: hidden;
+}
+
+@media (max-width: 767px) {
+  /* Hero section container must not overflow */
+  .hero-section,
+  .hero-landscape-bg {
+    overflow: hidden;
+  }
+
+  /* The frosted glass backing elements use negative offsets that bleed out.
+     Clip them entirely on mobile where the decorative effect is less impactful. */
+  .hero-glass-backing-1,
+  .hero-glass-backing-2 {
+    display: none;
+  }
+
+  /* Allow ALL live-badge text to wrap so it never stretches the layout */
+  .live-badge {
+    white-space: normal;
+    word-break: break-word;
+  }
+
+  /* Hero badge specifically - allow wrapping */
+  .hero-content-card .live-badge {
+    max-width: 100%;
+    white-space: normal;
+  }
+
+  /* Ticker box: ensure content doesn't bleed */
+  .hero-ticker-box {
+    overflow: hidden;
+    max-width: 100%;
+  }
+
+  /* Calc slider header: stack label and value on small screens */
+  .calc-slider-header {
+    flex-wrap: wrap;
+    gap: 0.35rem;
+  }
+
+  .calc-slider-val {
+    font-size: 18px;
+  }
+
+  /* Calc mode label area: allow badge to wrap */
+  .calc-interactive-card [style*="justify-content: space-between"] {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  /* Checklist items: ensure text wraps properly */
+  .calc-check-item {
+    align-items: flex-start;
+    overflow: hidden;
+    max-width: 100%;
+  }
+
+  .calc-check-item span:last-child {
+    overflow-wrap: break-word;
+    word-break: break-word;
+    min-width: 0;
+    flex: 1;
+  }
+
+  /* Preset buttons: allow wrapping */
+  .preset-group {
+    flex-wrap: wrap;
+  }
+
+  /* Niche select: full width on mobile */
+  .calc-niche-select {
+    width: 100%;
+    white-space: normal;
+  }
+
+  /* Overall container cannot exceed viewport */
+  .container {
+    max-width: 100vw;
+    overflow-x: hidden;
+  }
+
+  /* Hero badge container: clamp to card width */
+  .hero-content-card > div:first-child {
+    max-width: 100%;
+    overflow: hidden;
+  }
+
+  /* Hero badge itself: cap width and truncate if translation is too long */
+  .hero-content-card .live-badge {
+    max-width: 100%;
+    overflow: hidden;
+  }
+
+  .hero-content-card .live-badge span[data-i18n] {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    display: block;
+  }
+
+  /* Hero mockup stack: no overflow */
+  .hero-mockup-stack {
+    overflow: hidden;
+    max-width: 100%;
+  }
+}
+
+/* ==========================================================================
+   Global Section Padding - reduce on mobile
+   ========================================================================== */
+@media (max-width: 767px) {
+  .profit-calc-section,
+  .autopsy-section,
+  .comparison-section,
+  .pricing-section,
+  .faq-section {
+    padding: 3rem 0;
+  }
+
+  .cta-banner-section {
+    padding: 2.5rem 0;
+  }
+
+  .proof-section {
+    padding: 2rem 0;
+  }
+
+  .autonomous-timeline-card {
+    padding: 1.25rem 1rem;
+  }
+}
+
+/* ==========================================================================
+   Header - mobile fixes
+   ========================================================================== */
+@media (max-width: 480px) {
+  .header-container .live-badge {
+    display: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .header-actions > .btn-primary {
+    display: none;
+  }
+
+  .header-actions > .lang-switcher {
+    display: none;
+  }
+}
+
+/* ==========================================================================
+   Hero Section - mobile layout improvements
+   ========================================================================== */
+@media (max-width: 767px) {
+  .hero-section {
+    padding-top: 4.5rem;
+    padding-bottom: 2.5rem;
+  }
+
+  .hero-content-card {
+    padding: 1.25rem;
+    gap: 1rem;
+    /* Prevent any child from overflowing the card */
+    overflow: hidden;
+    max-width: 100%;
+  }
+
+  .hero-title {
+    font-size: 1.75rem;
+    line-height: 1.18;
+    /* Long words (e.g. Latvian) should break if needed */
+    overflow-wrap: break-word;
+    word-break: break-word;
+  }
+
+  /* Hero description: reduce from 18px to 15px on mobile */
+  .hero-content-card .font-body {
+    font-size: 15px !important;
+    line-height: 1.55;
+  }
+
+  .hero-ctas {
+    flex-direction: column;
+  }
+
+  .hero-ctas .btn-primary,
+  .hero-ctas .btn-secondary {
+    width: 100%;
+    justify-content: center;
+    padding: 0.875rem 1.25rem !important;
+    /* Prevent button text from overflowing */
+    white-space: normal;
+    text-align: center;
+  }
+
+  /* Trust badges: constrain to not overflow right */
+  .trust-badges {
+    gap: 0.4rem 0.5rem;
+    font-size: 11px;
+    max-width: 100%;
+    overflow: hidden;
+  }
+
+  .trust-badge-item {
+    padding: 0.3rem 0.5rem;
+    /* Clamp long badge text */
+    max-width: calc(100vw - 4rem);
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
+  /* Ticker box: clamp the scrolling text, never let it push layout */
+  .hero-ticker-box {
+    padding: 0.65rem 0.875rem;
+    gap: 0.5rem;
+    overflow: hidden;
+    max-width: 100%;
+  }
+
+  /* Ticker inner text: truncate, don't overflow */
+  .hero-ticker-box p {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  /* Right ROAS badge in ticker: shrink-0 but don't push */
+  .hero-ticker-box .live-badge {
+    flex-shrink: 0;
+    white-space: nowrap;
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 767px) {
+  .hero-glass-backing-1 {
+    top: -8px;
+    left: -6px;
+    right: -6px;
+    bottom: -8px;
+  }
+
+  .hero-glass-backing-2 {
+    top: -4px;
+    left: -3px;
+    right: -3px;
+    bottom: -4px;
+  }
+}
+
+/* ==========================================================================
+   Chat Simulator - mobile fixes
+   ========================================================================== */
+@media (max-width: 767px) {
+  /* Constrain the chat mockup to viewport width */
+  .chat-mockup-wrapper {
+    max-width: 100%;
+  }
+
+  /* Clamp chat header - icons should not push right */
+  .chat-header {
+    padding: 0.65rem 0.875rem;
+    overflow: hidden;
+  }
+
+  .chat-actions {
+    gap: 0.25rem;
+    flex-shrink: 0;
+  }
+
+  .chat-profile {
+    min-width: 0;
+    flex: 1;
+    overflow: hidden;
+  }
+
+  .chat-agent-info {
+    min-width: 0;
+    overflow: hidden;
+  }
+
+  .chat-agent-info h3 {
+    font-size: 13px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .chat-agent-subtext {
+    font-size: 10px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  /* Chat bubbles: allow text to wrap, NOT clip */
+  .chat-bubble-shelby,
+  .chat-bubble-user {
+    overflow-wrap: break-word;
+    word-break: break-word;
+  }
+
+  /* User bubble: narrower on mobile so it doesn't hug the right edge */
+  .chat-bubble-user {
+    max-width: 78%;
+  }
+
+  /* Shelby bubble: slightly narrower */
+  .chat-bubble-shelby {
+    max-width: 88%;
+  }
+
+  /* Inner data rows inside chat bubbles: wrap instead of pushing off-screen */
+  .chat-bubble-shelby div[style*="justify-content: space-between"] {
+    flex-wrap: wrap;
+    gap: 2px 0.5rem;
+  }
+
+  .chat-bubble-shelby div[style*="justify-content: space-between"] > span:last-child {
+    overflow-wrap: break-word;
+    word-break: break-word;
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  .chat-stream-canvas {
+    height: 300px;
+  }
+
+
+  .scenario-tab-btn {
+    font-size: 11px;
+    padding: 0.3rem 0.6rem;
+  }
+
+  .chat-input-field {
+    font-size: 12px;
+    min-width: 0;
+  }
+
+  .chat-avatar {
+    width: 36px;
+    height: 36px;
+    font-size: 1rem;
+  }
+
+  .chat-agent-info h3 {
+    font-size: 14px;
+  }
+
+  .chat-agent-subtext {
+    font-size: 10px;
+  }
+
+  .chat-header {
+    padding: 0.65rem 0.875rem;
+  }
+}
+
+/* ==========================================================================
+   Proof / Scale Bar - mobile
+   ========================================================================== */
+@media (max-width: 767px) {
+  .proof-card {
+    padding: 1.25rem;
+  }
+
+  .proof-metric {
+    font-size: 1.75rem;
+    margin-top: 0.75rem;
+  }
+}
+
+/* ==========================================================================
+   Calculator Section - mobile
+   ========================================================================== */
+@media (max-width: 767px) {
+  .calc-interactive-card {
+    padding: 1.25rem;
+    gap: 1.25rem;
+  }
+
+  .calc-results-card {
+    padding: 1.5rem 1.25rem;
+  }
+
+  .calc-main-num {
+    font-size: 2.25rem;
+  }
+
+  .calc-breakdown-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  #calcCtaBtn {
+    padding: 0.875rem 1.25rem !important;
+  }
+}
+
+/* ==========================================================================
+   Autonomous Timeline - mobile
+   ========================================================================== */
+@media (max-width: 767px) {
+  .timeline-header-title {
+    font-size: 16px;
+  }
+
+  .timeline-nav-btn {
+    font-size: 11.5px;
+    padding: 0.45rem 0.7rem;
+    gap: 0.35rem;
+  }
+
+  .timeline-nav-time {
+    font-size: 11.5px;
+  }
+
+  .timeline-metrics-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  .timeline-playback-bar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .wa-phone-canvas {
+    min-height: 200px;
+  }
+
+  .timeline-step-title {
+    font-size: 16px;
+  }
+
+  .timeline-step-desc {
+    font-size: 13px;
+  }
+
+  .timeline-narrative-card {
+    padding: 1rem;
+  }
+
+  .timeline-wa-phone {
+    min-height: 260px;
+  }
+}
+
+/* ==========================================================================
+   Before/After Autopsy Slider - mobile
+   ========================================================================== */
+@media (max-width: 767px) {
+  .autopsy-viewport {
+    min-height: 520px;
+  }
+
+  .autopsy-pane-before,
+  .autopsy-pane-after-inner {
+    padding: 1.25rem;
+  }
+
+  .autopsy-pane-before [style*="grid-template-columns: repeat(3, 1fr)"],
+  .autopsy-pane-after-inner [style*="grid-template-columns: repeat(3, 1fr)"] {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 0.75rem !important;
+  }
+
+  .autopsy-section .section-heading {
+    font-size: 1.75rem;
+  }
+
+  .autopsy-divider-handle {
+    width: 52px;
+    height: 52px;
+  }
+}
+
+@media (max-width: 767px) {
+  div[style*="grid-template-columns: repeat(3, 1fr)"] {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+/* ==========================================================================
+   Comparison Table - mobile scroll hint
+   ========================================================================== */
+@media (max-width: 767px) {
+  .table-scroll-container {
+    -webkit-mask-image: linear-gradient(to right, black 85%, transparent 100%);
+    mask-image: linear-gradient(to right, black 85%, transparent 100%);
+    margin-top: 1.5rem;
+  }
+
+  .table-scroll-container::before {
+    content: "Scroll to compare \2192";
+    display: block;
+    text-align: center;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--color-text-muted);
+    padding: 0.5rem;
+    background: var(--surface-subtle);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    border-radius: var(--radius-sm) var(--radius-sm) 0 0;
+  }
+
+  .comparison-section .section-heading {
+    font-size: 1.75rem;
+  }
+}
+
+/* ==========================================================================
+   Pricing Section - mobile
+   ========================================================================== */
+@media (max-width: 767px) {
+  .pricing-card {
+    padding: 1.5rem;
+  }
+
+  .pricing-amount {
+    font-size: 2.5rem;
+  }
+
+  .pricing-section .section-heading {
+    font-size: 1.75rem;
+  }
+
+  .billing-toggle-pill {
+    flex-wrap: wrap;
+    gap: 0.25rem;
+  }
+}
+
+/* ==========================================================================
+   FAQ Section - mobile
+   ========================================================================== */
+@media (max-width: 767px) {
+  .faq-trigger {
+    padding: 1rem 1.125rem;
+    font-size: 15px;
+    gap: 0.75rem;
+  }
+
+  .faq-inner {
+    padding: 0 1.125rem 1rem;
+  }
+
+  .faq-section .section-heading {
+    font-size: 1.75rem;
+  }
+}
+
+/* ==========================================================================
+   CTA Banner Section - mobile
+   ========================================================================== */
+@media (max-width: 767px) {
+  .cta-banner-box {
+    padding: 1.75rem 1.25rem;
+    gap: 1.25rem;
+  }
+
+  .cta-banner-box h2 {
+    font-size: 1.65rem !important;
+    line-height: 1.25 !important;
+  }
+
+  .cta-banner-box p {
+    font-size: 14px !important;
+  }
+
+  .cta-banner-box .btn-primary {
+    width: 100%;
+    padding: 0.875rem 1.25rem !important;
+    font-size: 15px !important;
+    justify-content: center;
+  }
+
+  .cta-banner-box .shrink-0 {
+    width: 100%;
+  }
+}
+
+/* ==========================================================================
+   Footer - fix the non-working Tailwind-like responsive classes
+   ========================================================================== */
+
+/* Footer top row: brand + nav, stacked on mobile, row on ≥768px */
+.site-footer .container > .flex.flex-col {
+  flex-direction: column;
+  gap: 1.5rem;
+  align-items: flex-start;
+}
+
+@media (min-width: 768px) {
+  .site-footer .container > .flex.flex-col {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+/* Footer bottom copyright row: stacked on mobile, row on ≥640px */
+.site-footer .container > div:last-child.flex.flex-col {
+  align-items: center;
+  text-align: center;
+}
+
+@media (min-width: 640px) {
+  .site-footer .container > div:last-child.flex.flex-col {
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: left;
+  }
+}
+
+/* Footer nav links: wrap on mobile */
+.site-footer nav.flex {
+  flex-wrap: wrap;
+  gap: 0.75rem 1rem;
+}
+
+@media (max-width: 767px) {
+  .site-footer p[style*="max-width: 440px"] {
+    max-width: 100% !important;
+  }
+}
+
+/* ==========================================================================
+   Floating Action Button - mobile
+   ========================================================================== */
+@media (max-width: 767px) {
+  .floating-whatsapp-trigger {
+    bottom: 1rem;
+    right: 1rem;
+    padding: 0.65rem 1rem;
+    font-size: 13px;
+  }
+}
+
+/* ==========================================================================
+   Section Headings - global mobile scale
+   ========================================================================== */
+@media (max-width: 767px) {
+  .section-heading {
+    font-size: 1.85rem !important;
+    line-height: 1.2 !important;
+  }
+
+  .section-description {
+    font-size: 15px;
+  }
+}
+
+/* ==========================================================================
+   Mobile Drawer - polish
+   ========================================================================== */
+@media (max-width: 767px) {
+  .mobile-nav-link {
+    font-size: 16px;
+    padding: 0.875rem 1rem;
+  }
+}
+
+/* ==========================================================================
+   Accessibility: Ensure adequate touch target sizes
+   ========================================================================== */
+@media (max-width: 767px) {
+  .scenario-tab-btn,
+  .timeline-nav-btn,
+  .timeline-ctrl-btn,
+  .autopsy-tab-btn,
+  .preset-btn,
+  .lang-btn {
+    min-height: 36px;
+  }
+
+  .mobile-menu-btn {
+    width: 44px;
+    height: 44px;
+  }
+}
+
+/* ==========================================================================
+   xs (< 380px) - extra small phone adjustments
+   ========================================================================== */
+@media (max-width: 380px) {
+  .hero-title {
+    font-size: 1.6rem;
+  }
+
+  .chat-stream-canvas {
+    height: 260px;
+  }
+
+  .autonomous-timeline-card {
+    padding: 1rem 0.875rem;
+  }
+
+  .calc-main-num {
+    font-size: 2rem;
+  }
+
+  .pricing-card {
+    padding: 1.25rem 1rem;
+  }
+}

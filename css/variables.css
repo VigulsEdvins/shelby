@@ -1,0 +1,99 @@
+/**
+ * Shelby.ai Design System Variables
+ * Grounded in DESIGN.md specifications
+ */
+:root {
+  /* Surface and Canvas Hierarchy */
+  --surface-base: #f8fafc;
+  --surface-card: #ffffff;
+  --surface-subtle: #f1f5f9;
+  --surface-container-low: #eff4ff;
+  --surface-container: #e5eeff;
+  --surface-container-high: #dce9ff;
+  --surface-container-highest: #d3e4fe;
+  --surface-dim: #cbdbf5;
+
+  /* Brand Colors */
+  --color-primary: #006d2f;
+  --color-primary-container: #25d366; /* Signature WhatsApp neon green */
+  --color-primary-fixed: #66ff8e;
+  --color-primary-fixed-dim: #3de273;
+  --color-on-primary: #ffffff;
+  --color-on-primary-container: #004b1f;
+
+  --color-secondary: #0f172a; /* Obsidian Slate */
+  --color-secondary-container: #dae2fd;
+  --color-on-secondary: #ffffff;
+  --color-on-secondary-container: #5c647a;
+
+  --color-tertiary: #059669; /* Deep Emerald */
+  --color-tertiary-container: #58cd9b;
+  --color-on-tertiary: #ffffff;
+
+  --color-text-primary: #0f172a;
+  --color-text-secondary: #334155;
+  --color-text-muted: #64748b;
+  --color-border-subtle: #e2e8f0;
+  --color-border-strong: #cbd5e1;
+
+  --color-error: #ba1a1a;
+  --color-error-container: #ffdad6;
+  --color-on-error: #ffffff;
+
+  /* Typography Scales */
+  --font-family-display: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-family-body: 'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  --font-size-display-hero: 56px;
+  --font-line-height-display-hero: 64px;
+  --font-size-headline-xl: 40px;
+  --font-line-height-headline-xl: 48px;
+  --font-size-headline-lg: 30px;
+  --font-line-height-headline-lg: 38px;
+  --font-size-headline-md: 22px;
+  --font-line-height-headline-md: 28px;
+  --font-size-headline-sm: 18px;
+  --font-line-height-headline-sm: 24px;
+  --font-size-body-lg: 18px;
+  --font-line-height-body-lg: 28px;
+  --font-size-body-md: 15px;
+  --font-line-height-body-md: 24px;
+  --font-size-body-sm: 13px;
+  --font-line-height-body-sm: 18px;
+  --font-size-label-md: 13px;
+  --font-size-label-sm: 11px;
+  --font-size-telemetry-num: 28px;
+
+  /* Spacing */
+  --space-2xs: 0.125rem; /* 2px */
+  --space-xs: 0.25rem;  /* 4px */
+  --space-sm: 0.5rem;   /* 8px */
+  --space-md: 1rem;     /* 16px */
+  --space-lg: 1.5rem;   /* 24px */
+  --space-xl: 2.5rem;   /* 40px */
+  --space-2xl: 4rem;    /* 64px */
+  --gutter: 1.25rem;
+  --gutter-mobile: 0.75rem;
+  --container-max-width: 1440px;
+  --margin: 2rem;
+  --margin-mobile: 1rem;
+
+  /* Border Radii */
+  --radius-sm: 0.5rem;   /* 8px */
+  --radius-md: 1rem;     /* 16px */
+  --radius-lg: 1.5rem;   /* 24px */
+  --radius-xl: 2rem;     /* 32px */
+  --radius-full: 9999px;
+
+  /* Elevations & Depth */
+  --shadow-level-1: 0 1px 3px 0 rgba(15, 23, 42, 0.04), 0 1px 2px -1px rgba(15, 23, 42, 0.02);
+  --shadow-level-2: 0 10px 25px -5px rgba(15, 23, 42, 0.07), 0 8px 10px -6px rgba(15, 23, 42, 0.04);
+  --shadow-level-3: 0 20px 40px -10px rgba(15, 23, 42, 0.12), 0 1px 3px rgba(15, 23, 42, 0.06);
+  --shadow-primary-halo: 0 4px 18px rgba(37, 211, 102, 0.35);
+  --shadow-primary-glow: 0 8px 30px rgba(37, 211, 102, 0.45);
+
+  /* Transitions */
+  --transition-fast: 150ms cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-smooth: 240ms cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-slow: 400ms cubic-bezier(0.16, 1, 0.3, 1);
+}

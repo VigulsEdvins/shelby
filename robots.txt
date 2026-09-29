@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://shelby.ai/sitemap.xml
